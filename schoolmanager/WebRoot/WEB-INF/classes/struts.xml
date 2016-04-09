@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<!-- 个人信息-->
+	<package name="personalInformation" extends="struts-default" namespace="/personalInformation">
+		<!-- 修改个人信息action -->
+		<action name="modifyPersonalInformation" class="com.action.PersonalInformationAction" method="modifyPerson">
+		  	<result name="success" >/personalInformation/success.jsp</result>
+		</action>
+		
+		<!-- 修改密码action -->
+		<action name="modifyPwd" class="com.action.PersonalInformationAction" method="modifyPwd">
+		</action>		
+	</package>
+	
+	<!-- 数据管理-->
+	<package name="dataManage" extends="struts-default" namespace="/dataManage">
+		<!-- 评论上一页下一页action -->
+		<action name="commentPreNextAction" class="com.action.CommentManageAction" method="preNext">
+			<result name = "success">/dataManage/commentManage.jsp</result>
+		</action>
+		
+		<!-- 删除评论action -->
+		<action name="commentDeleteAction" class="com.action.CommentManageAction" method="delete">
+			<result name = "success">/dataManage/commentManage.jsp</result>
+		</action>
+		
+		<!-- 查询学生action -->
+		<action name="searchStudentAction" class="com.action.StudentManageAction" method="search">
+			<result name = "success">/dataManage/studentManage.jsp</result>
+		</action>
+		<!-- 禁言1置换学号2 置换邮箱3action -->
+		<action name="forbidStudentAction" class="com.action.StudentManageAction" method="forbid">
+			<result name = "success">/dataManage/studentManage.jsp</result>
+		</action>
+		<!-- 恢复  可登陆app  action -->
+		<action name="recoverStudentAction" class="com.action.StudentManageAction" method="recover">
+			<result name = "success">/dataManage/studentManage.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 系统管理员 -->
+	<package name="sysManager" extends="struts-default" namespace="/sysManager">
+		<action name="managerListDel" class="com.action.SysMangerListAciton" method="del">
+		</action>
+		<action name="managerListAccept" class="com.action.SysMangerListAciton" method="act">
+		</action>
+		<action name="managerListRefuse" class="com.action.SysMangerListAciton" method="ref">
+		</action>
+	</package>
+	
+	<!-- 校外活动 -->
+	<package name="outActivity" extends="struts-default" namespace="/outActivity">
+		<!--创建校外活动Action  -->
+		<action name="outActivityCreate" class="com.action.OutActivityCreateOrEditAction" method="outActivityCreateMethord">
+			<param name="attachmentSavePath">/upload</param><!-- 附件存储的位置 -->
+			<result name="success">/outActivity/success.html</result>
+			<result name="input">/outActivity/outactivitycreate.jsp</result>
+			<interceptor-ref name="fileUpload">
+				<param name="allowTypes">image/bmp,image/png,image/jpeg,application/zip</param>
+				<param name="maximumSize">1024*1024*5</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		
+		<!-- 修改校外活动Action -->
+		<action name="outActivityEdit" class="com.action.OutActivityCreateOrEditAction" method="outActivityEditMethord">
+			<param name="attachmentSavePath">/upload</param><!-- 附件存储的位置 -->
+			<result name="success">/outActivity/success.html</result>
+			<result name="input">/outActivity/outactivityedit.jsp</result>
+			<interceptor-ref name="fileUpload">
+				<param name="allowTypes">image/bmp,image/png,image/jpeg,application/zip</param>
+				<param name="maximumSize">1024*1024*5</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+	</package>
+	
+	
+	<!-- 统计分析-->
+	<package name="analysis" extends="struts-default" namespace="/analysis">
+		<!-- 获得各年级学生分布 -->
+		<action name="studentByGrade" class="com.action.EnrollStudentAction" method="gradeAnalysis">
+		  	<result name="success" >/analysis/studentByGrade.jsp</result>
+		</action>
+		
+		<!-- 按日查询学生注册增加量 -->
+		<action name="studentByDay" class="com.action.EnrollStudentAction" method="studentByDay">
+		  	<result name="success" >/analysis/studentByDay.jsp</result>
+		</action>
+			
+		<!-- 按日查询学生注册增加量上一页 -->
+		<action name="studentByDayPre" class="com.action.EnrollStudentAction" method="studentByDayPre">
+		  	<result name="success" >/analysis/studentByDay.jsp</result>
+		</action>
+		<!-- 按日查询学生注册增加量下一页  -->
+		<action name="studentByDayNext" class="com.action.EnrollStudentAction" method="studentByDayNext">
+		  	<result name="success" >/analysis/studentByDay.jsp</result>
+		</action>
+		
+		<!-- 按月查询学生注册增加量 -->
+		<action name="studentByMonth" class="com.action.EnrollStudentAction" method="studentByMonth">
+		  	<result name="success" >/analysis/studentByMonth.jsp</result>
+		</action>
+		<!-- 按月查询学生注册增加量上一页 -->
+		<action name="studentByMonthPre" class="com.action.EnrollStudentAction" method="studentByMonthPre">
+		  	<result name="success" >/analysis/studentByMonth.jsp</result>
+		</action>
+		<!-- 按月查询学生注册增加量下一页  -->
+		<action name="studentByMonthNext" class="com.action.EnrollStudentAction" method="studentByMonthNext">
+		  	<result name="success" >/analysis/studentByMonth.jsp</result>
+		</action>
+		
+		<!-- 活跃度 -->
+		<action name="getActiveData" class="com.action.ActiveDataAction" method="getActiveDataMethord">			
+		</action>
+		
+		<!-- 按天活动创建统计 -->
+		<action name="getActivityDataByDay" class="com.action.ActivityDataAction">
+			<result name="success">/analysis/activityday.jsp</result>
+		</action>
+		
+		<!-- 按月活动创建统计 -->
+		<action name="getActivityDataByMonth" class="com.action.ActivityDataAction">
+			<result name="success">/analysis/activitymonth.jsp</result>
+		</action>
+		
+		<!-- 点赞参与情况 -->
+		<action name="praiseAnalysis" class="com.action.ActiveStudentAction" method="praiseAnalysis">
+		  	<result name="success" >/analysis/praiseAnalysis.jsp</result>
+		</action>
+		
+		<!-- 点赞参与情况上一页 -->
+		<action name="praisePre" class="com.action.ActiveStudentAction" method="praisePre">
+		  	<result name="success" >/analysis/praiseAnalysis.jsp</result>
+		</action>
+		<!-- 点赞参与情况下一页  -->
+		<action name="praiseNext" class="com.action.ActiveStudentAction" method="praiseNext">
+		  	<result name="success" >/analysis/praiseAnalysis.jsp</result>
+		</action>
+		
+		<!-- 评论参与情况 -->
+		<action name="commentAnalysis" class="com.action.ActiveStudentAction" method="commentAnalysis">
+		  	<result name="success" >/analysis/commentAnalysis.jsp</result>
+		</action>
+		
+		<!-- 评论参与情况上一页 -->
+		<action name="commentPre" class="com.action.ActiveStudentAction" method="commentPre">
+		  	<result name="success" >/analysis/commentAnalysis.jsp</result>
+		</action>
+		<!-- 评论参与情况下一页  -->
+		<action name="commentNext" class="com.action.ActiveStudentAction" method="commentNext">
+		  	<result name="success" >/analysis/commentAnalysis.jsp</result>
+		</action>
+		
+		<!-- 报名参与情况 -->
+		<action name="signupAnalysis" class="com.action.ActiveStudentAction" method="signupAnalysis">
+		  	<result name="success" >/analysis/signupAnalysis.jsp</result>
+		</action>
+		<!-- 报名参与情况上一页 -->
+		<action name="signupPre" class="com.action.ActiveStudentAction" method="signupPre">
+		  	<result name="success" >/analysis/signupAnalysis.jsp</result>
+		</action>
+		<!-- 报名参与情况下一页  -->
+		<action name="signupNext" class="com.action.ActiveStudentAction" method="signupNext">
+		  	<result name="success" >/analysis/signupAnalysis.jsp</result>
+		</action>
+		
+		<!-- 分享情况 -->
+		<action name="shareAnalysis" class="com.action.ActiveStudentAction" method="shareAnalysis">
+		  	<result name="success" >/analysis/shareAnalysis.jsp</result>
+		</action>
+		
+		<!-- 分享情况上一页 -->
+		<action name="sharePre" class="com.action.ActiveStudentAction" method="sharePre">
+		  	<result name="success" >/analysis/shareAnalysis.jsp</result>
+		</action>
+		<!-- 分享情况下一页  -->
+		<action name="shareNext" class="com.action.ActiveStudentAction" method="shareNext">
+		  	<result name="success" >/analysis/shareAnalysis.jsp</result>
+		</action>
+		
+		<!-- 按日查询学校注册增加量 -->
+		<action name="schoolByDay" class="com.action.OpenSchoolAction" method="schoolByDay">
+		  	<result name="success" >/analysis/schoolByDay.jsp</result>
+		</action>
+			
+		<!-- 按日查询学校注册增加量上一页 -->
+		<action name="schoolByDayPre" class="com.action.OpenSchoolAction" method="schoolByDayPre">
+		  	<result name="success" >/analysis/schoolByDay.jsp</result>
+		</action>
+		<!-- 按日查询学生注册增加量下一页  -->
+		<action name="schoolByDayNext" class="com.action.OpenSchoolAction" method="schoolByDayNext">
+		  	<result name="success" >/analysis/schoolByDay.jsp</result>
+		</action>
+		
+		<!-- 按月查询学校注册增加量 -->
+		<action name="schoolByMonth" class="com.action.OpenSchoolAction" method="schoolByMonth">
+		  	<result name="success" >/analysis/schoolByMonth.jsp</result>
+		</action>
+		<!-- 按月查询学校注册增加量上一页 -->
+		<action name="schoolByMonthPre" class="com.action.OpenSchoolAction" method="schoolByMonthPre">
+		  	<result name="success" >/analysis/schoolByMonth.jsp</result>
+		</action>
+		<!-- 按月查询学校注册增加量下一页  -->
+		<action name="schoolByMonthNext" class="com.action.OpenSchoolAction" method="schoolByMonthNext">
+		  	<result name="success" >/analysis/schoolByMonth.jsp</result>
+		</action>
+		
+		
+		<!-- 表统计 -->
+		<action name="getTableData" class="com.action.TableDataAction" method="getTableDataMethord"></action>
+	
+		<!-- 发布通知统计 -->
+		<action name="getNoticeData" class="com.action.AnnouncementDataAction" method="getAnnouncementDataMethord"></action>
+	</package>
+	
+	<!-- 反馈-->
+	<package name="feedback" extends="struts-default" namespace="/feedback">
+		<!-- 反馈详情 -->
+		<action name="feedbackDetail" class="com.action.FeedbackAction" method="showDetail">
+		  	<result name="success" >/feedback/feedbackDetail.jsp</result>
+		</action>	
+		<!-- 处理反馈 -->
+		<action name="feedbackHandle" class="com.action.FeedbackAction" method="handle">
+		</action>	
+		<!-- 上一页下一页处理action -->
+		<action name="feedbackPreNext" class="com.action.FeedbackAction" method="execute">
+			<result name="success">/feedback/feedbackList.jsp</result>
+		</action>	
+	</package>
+	
+	<!-- 学校管理-->
+	<package name="schoolManager" extends="struts-default" namespace="/schoolManager">
+		<!-- 新增地区-->
+		<action name="addAreaAction" class="com.action.SchoolManagerAction" method="addArea">
+		</action>
+		
+		<!-- 新增学校 -->	
+		<action name="addSchool" class="com.action.SchoolManageAddSchoolAction">
+			<result name="success">/schoolManager/addSchoolPicture.jsp</result>
+		</action>
+		
+		<!-- 上传学校picture -->
+		<action name="uploadPic" class="com.action.SchoolManagerUploadPicAction">
+			<result name="success">/schoolManager/success.html</result>
+			<interceptor-ref name="fileUpload">
+				<param name="allowTypes">image/bmp,image/png,image/jpeg</param>
+				<param name="maximumSize">1024*1024*5</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<!-- 更改服务状态 -->
+		<action name="changeService" class="com.action.SchoolManageServiceAction" method="changeState">
+		</action>
+		
+		<!-- 查看管理员信息 -->
+		<action name="showManager" class="com.action.SchoolManagerEditAction" method="editManager"></action>
+	
+		<!-- 更改管理员信息 -->
+		<action name="changeManagerInfo" class="com.action.SchoolManagerChangeAction" method="changeManager"></action>
+	
+		<!-- 学校翻页 -->
+		<action name="changePage" class="com.action.SchoolManagerPageAction">
+			<result name="success">/schoolManager/existSchool.jsp</result>
+		</action>
+		
+		<!-- 获取城市信息 -->
+		<action name="getCity" class="com.action.SchoolManagerGetCityAction" method="getCityInfo"></action>
+	</package>
+	
+	<!-- 公告通知-->
+	<package name="bulletin" extends="struts-default" namespace="/bulletin">
+		<!-- 详细信息-->
+		<action name="bulletinDetailAction" class="com.action.BulletinAction" method="detail">
+			<result name="success">/bulletin/bulletinDetail.jsp</result>
+		</action>
+		
+		<!-- 上一页下一页处理action -->
+		<action name="bulletinPreNext" class="com.action.BulletinAction" method="turn">
+			<result name="success">/bulletin/bulletinList.jsp</result>
+		</action>
+		<!-- 群发公告-->
+		<action name="batchNoticeAction" class="com.action.BulletinAction" method="batch">
+			<result name="success">/bulletin/bulletinBatch.jsp</result>
+		</action>
+				
+	</package>
+</struts>    

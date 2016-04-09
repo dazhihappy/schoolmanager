@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>success.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+
+  </head>
+  
+  <body>
+    <h1 align="center">success.</h1> <hr>
+    <div align="center">
+    	<button class="btn btn-success btn-large" type="button" id="returnList">返回活动列表</button>
+    </div>
+    <script type="text/javascript">
+    	$("#returnList").bind("click",function(){
+    		location.href="outactivityshow.jsp";
+    	});
+    </script>
+  </body>
+</html>

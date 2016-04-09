@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>success.html</title>
+    <meta charset="utf-8">
+	
+	<script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
+ 	<!-- 引入bootstrap -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+  </head>
+  
+  <body>
+    <h2 align="center">success</h2> <hr>
+    <div align="center">
+    	<button type="submit" class="btn btn-info">返回学校列表</button>
+    </div>
+  </body>
+  <script type="text/javascript">
+  	$(function(){
+  		$("[type=submit]").bind("click",function(){
+  			location.href="existSchool.jsp";
+  		});
+  	});
+  </script>
+</html>

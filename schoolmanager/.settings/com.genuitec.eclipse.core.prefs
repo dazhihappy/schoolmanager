@@ -1,0 +1,4 @@
+#Fri Nov 27 00:04:34 CST 2015
+eclipse.preferences.version=1
+validator.Checked=WebRoot/js/jquery-1.7.1.min.js,WebRoot/ueditor/third-party/webuploader/webuploader.html5only.js
+validator.Unchecked=

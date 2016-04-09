@@ -1,0 +1,62 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+td,th{
+	text-align: center;
+}
+
+td:nth-child(2){
+	cursor: pointer;
+}
+
+#content{
+	position: absolute;
+	width: 100%;
+	height: 100%;	
+}
+
+#editSchoolWrapper{
+	position: absolute;
+	width: 100%;
+	height: 100%;	
+	background-color: rgba(0,0,0,.5);
+}
+
+#editSchool{
+	position: absolute;
+	width: 50%;
+	height: 40%;
+	left: 25%;
+	top: 10%;
+	background-color: rgba(255,255,255,0.8);
+	border-radius: 10px;
+	padding: 20px;
+}
+
+#editSchool table{
+	width: 100%;
+	font-size: 16px;
+}
+
+#editSchool td{
+	width: 50%;
+	margin: 20px 0;
+	padding: 20px 0; 
+	text-align: center;
+}
+
+#editSchool input{
+	width: 100%;
+}
+
+#editSchool button{
+	width: 80%;
+}
+
+a{
+	cursor: pointer;
+	font-size: 16px;
+}
+

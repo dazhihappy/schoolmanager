@@ -1,0 +1,28 @@
+
+table{
+	text-align: center;
+}
+
+td,th{
+	text-align: center;
+}
+
+.shows{
+	cursor: pointer;
+}
+
+.create{
+	position: absolute;
+	right: 1%;
+	top: 3%;
+}
+
+.page{
+	font-size: 20px;
+	width: 20%;
+	text-align: center;
+}
+
+a:HOVER {
+	cursor: pointer;
+}
